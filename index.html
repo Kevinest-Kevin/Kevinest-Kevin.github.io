@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>凪の小屋 · 个人博客</title>
+  <meta name="description" content="一个温柔的个人博客：文章、标签、关于，支持 Markdown 渲染。" />
+  <meta name="keywords" content="个人博客,技术,随笔,二次元,前端,Markdown" />
+  <meta name="author" content="凪" />
+  <meta name="theme-color" content="#faf7fb" />
+  <link rel="canonical" href="https://kevinest-kevin.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="凪の小屋" />
+  <meta property="og:title" content="凪の小屋 · 个人博客" />
+  <meta property="og:description" content="一个温柔的个人博客：文章、标签、关于，支持 Markdown 渲染。" />
+  <meta property="og:image" content="images/hero-bg.png" />
+  <meta property="og:url" content="https://kevinest-kevin.github.io/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="凪の小屋 · 个人博客" />
+  <meta name="twitter:description" content="一个温柔的个人博客：文章、标签、关于，支持 Markdown 渲染。" />
+  <meta name="twitter:image" content="images/hero-bg.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/avatar.png" />
+  <link rel="apple-touch-icon" href="images/avatar.png" />
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "凪の小屋",
+    "url": "https://kevinest-kevin.github.io/",
+    "description": "一个温柔的个人博客：文章、标签、关于，支持 Markdown 渲染。",
+    "author": { "@type": "Person", "name": "凪" }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="vendor/github.min.css" id="hljs-light" />
+  <link rel="stylesheet" href="vendor/github-dark.min.css" id="hljs-dark" disabled />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 阅读进度条（仅文章详情显示） -->
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <!-- 顶部导航 -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#/">凪の小屋</a>
+      <nav class="nav-links">
+        <a href="#/" data-route="home">文章</a>
+        <a href="#/tags" data-route="tags">标签</a>
+        <a href="#/archive" data-route="archive">归档</a>
+        <a href="#/about" data-route="about">关于</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="切换主题" title="切换深浅色">🌙</button>
+    </div>
+  </header>
+
+  <!-- 页面内容（由 app.js 渲染） -->
+  <main id="view"></main>
+
+  <footer class="site-footer">
+    <p>用 ❤ 与一点点代码写成 · © <span id="year"></span> 凪の小屋</p>
+    <p class="footer-sub">Powered by vanilla JS · Markdown · 二次元背景</p>
+    <p class="footer-admin"><a href="editor.html">✎ 后台编辑</a></p>
+  </footer>
+
+  <!-- 依赖库（本地，离线可用） -->
+  <script src="vendor/marked.min.js"></script>
+  <script src="vendor/dompurify.min.js"></script>
+  <script src="vendor/highlight.min.js"></script>
+  <script src="js/data.js"></script>
+
+  <!-- ============ 文章正文（Markdown） ============ -->
+  
+  
+  
+  
+  
+
+    <script type="text/markdown" id="md-why-i-start-blogging">
+
+
+# 在像素与诗意之间：我为什么开始写博客
+
+很久以前我以为，写作是作家的特权。直到某个深夜，我把一段跑通的代码贴进文档，顺手写下一句「原来这样就好了」，才发现——**写下来，本身就是在整理自己**。
+
+## 写，是为了不忘记
+
+脑子里的念头像水蒸气，飘着飘着就散了。把它们按进文字里，像是给风拍了张照片。
+
+> 我们写下的不是知识，而是此刻的自己。
+
+- 记录一次踩坑，下次就能少痛一点
+- 把零散的想法串起来，会冒出原本没有的结论
+- 哪怕没人看，回头读也像在和过去的自己聊天
+
+## 不是表演，是留白
+
+这个博客不追求阅读量。它更像一间小屋：
+
+1. 门常半掩，谁来都行
+2. 没有算法，没有信息流
+3. 只有我、和我想说的话
+
+所以如果你点进来了，欢迎随便坐坐。下一页，我会聊聊我是怎么用几十行原生 JS，做出这种平滑的翻页感的。
+  
+  
+  </script>
+  <script type="text/markdown" id="md-smooth-spa-router">
+
+
+# 用原生 JavaScript 实现一个平滑的路由与过渡动画
+
+不依赖 React、Vue，也不用什么路由库。一个个人博客，几十行代码就够顺滑了。
+
+## 思路：用 hash 当路由
+
+`location.hash` 变化不会刷新页面，正好用来做单页切换。监听 `hashchange` 即可：
+
+```js
+function router() {
+  const hash = location.hash.slice(1) || "/";
+  const [path, param] = hash.split("/").filter(Boolean);
+  // path: "article" / "tag" / "about" ...
+  render(path, param);
+}
+window.addEventListener("hashchange", router);
+window.addEventListener("load", router);
+```
+
+## 让切换「有呼吸感」
+
+关键是给内容容器一个入场动画。每次渲染前先清空，再让新内容淡入、轻微上移：
+
+```css
+.view {
+  animation: viewIn .5s cubic-bezier(.22,.61,.36,1) both;
+}
+@keyframes viewIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+```
+
+配合 `cubic-bezier` 的缓动曲线，页面会像被轻轻托起来一样。
+
+## 再加一点细节
+
+- 滚动到顶部再切换，避免「上一页的位置」串场
+- 文章页加一条顶部阅读进度条，跟着滚动走
+- 封面图做极慢的 `ken-burns` 缩放，安静但有生命
+
+就这样，一个温柔又轻盈的阅读空间就做好了。代码都在本仓库，随意拿去用。
+  
+  
+  </script>
+  <script type="text/markdown" id="md-what-we-love-about-2d">
+
+
+# 关于二次元，我们到底在迷恋什么
+
+有人问：都多大了还看动画？我想了想，答案可能不是「动画」，而是别的什么。
+
+## 一个允许「认真」的世界
+
+在二次元里，喜欢一件事可以很直白：认真做饭、认真战斗、认真喜欢一个人。那种**毫不遮掩的认真**，在成年人的世界里反而稀缺。
+
+> 我们爱的或许不是那个世界，而是那个愿意相信美好的自己。
+
+## 颜色是会发光的
+
+粉色黄昏、薄荷色天空、会飘的樱花——这些颜色提醒我：世界本来可以很温柔。
+
+- 它给疲惫的人一处避难所
+- 它让「中二」也变得合理
+- 它把说不出口的情绪，画成了画面
+
+所以这个博客的封面，我选了二次元的背景。不是为了酷，是想让进来的人，先松一口气。
+
+下次再聊我看过的、真正打动我的几部作品。
+  
+  
+  </script>
+  <script type="text/markdown" id="md-reading-list-2026">
+
+
+# 我的 2026 读书清单与一些碎碎念
+
+年初列了一长串书，半年过去，读完的没几本。但我决定不和自己较劲。
+
+## 在读 & 想读
+
+- **《夜航西飞》** — 一个女飞行员写的非洲，干净又有野性
+- **《清单革命》** — 关于「把复杂的事做对」的笨办法
+- **《 pizza 经济学》**（开玩笑的，其实是《小岛经济学》）— 用故事讲清钱的事
+- 村上春树短篇若干 — 适合睡前，不宜多
+
+## 一点碎碎念
+
+> 读书不是为了显得有文化，是为了在某一刻，恰好被一句话接住。
+
+我越来越觉得，**读得慢一点，也没关系**。书单不是 KPI，落灰也没罪。
+
+| 状态 | 数量 |
+| --- | --- |
+| 已读完 | 6 |
+| 在读 | 3 |
+| 吃灰中 | 11 |
+
+下半年目标只有一个：把「在读」那三本，真正读完。就这些。
+  
+  
+  </script>
+  <script type="text/markdown" id="md-open-source-markdown-tool">
+
+
+# 开源一个小工具：把 Markdown 变成温柔的网页
+
+写作者值得拥有好看的页面，而不只是冷冰冰的 `.md` 文件。
+
+## 它做什么
+
+- 把 Markdown 渲染成干净的文章页
+- 自动生成标签与归档
+- 零构建、零依赖，双击 `index.html` 就能跑
+
+## 为什么不用现成的
+
+市面上的方案要么太重，要么要起服务器。我想给「只想写点东西」的人，一个**最轻的出口**。
+
+```bash
+# 怎么用
+1. 把文章粘进 index.html 的 <script type="text/markdown"> 块
+2. 在 js/data.js 里加一条标题 / 日期 / 标签
+3. 双击 index.html —— 完成
+```
+
+## 接下来
+
+- [ ] 支持从独立 `.md` 文件加载
+- [ ] 加一个深色模式定时切换
+- [ ] 导出静态站点到任意托管
+
+如果这个小东西对你有用，欢迎来 [GitHub](https://github.com) 点个 star。写作本身已经够难了，页面这件事，交给它吧。
+  
+  
+  </script>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
